@@ -26,13 +26,15 @@ function App() {
         ></Route>
 
         {/* Routes after login */}
-        {isLoggedIn ? (
-          <Route
-            path="/logout"
-            element={<Logout onLoginUpdate={setIsLoggedIn} />}
-          ></Route>
-        ) : null}
-        {isLoggedIn ? <Route path="/about" element={<About />}></Route> : null}
+        {isLoggedIn && (
+          <>
+            <Route
+              path="/logout"
+              element={<Logout onLoginUpdate={setIsLoggedIn} />}
+            ></Route>
+            <Route path="/about" element={<About />}></Route>
+          </>
+        )}
 
         {/* Routes for everyone */}
 
